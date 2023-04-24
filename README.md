@@ -1,18 +1,52 @@
-# Vue 3 + TypeScript + Vite
+# 团队代码规范标准
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## commit 规范
 
-## Recommended IDE Setup
+**commitlint** 可以帮助你的团队使用统一的 commit 规范。
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### 使用
 
-## Type Support For `.vue` Imports in TS
+#### install
+```shell
+npm install @commitlint/{cli,config-conventional} -D
+```
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+在 **git commit** 提交时进行 **commit** 检查是否规范，因此需要对 **commit** 进行拦截，只有符合相应的格式才能提交代码。社区中可以通过 **Husky** 来完成这件事情。
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+#### Install husky
+```shell
+# Install
+npm install husky --save-dev
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+# Activate hooks
+npx husky install
+```
+
+#### Add hook
+```shell
+npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
+```
+
+#### 当前根目录下新建 commitlint.config.js
+
+```JS
+module.exports = {
+  extends: ["@commitlint/config-conventional"],
+  rules: {
+   //  "type-enum": [
+   //    2,
+   //    "always",
+   //    ["feat", "fix", "docs", "style", "refactor", "test", "revert", "build", "perf"],
+   //  ],
+  },
+};
+```
+
+我们一般直接使用提供的规范及即可，它所规定的 commit 信息格式一般如下：
+
+
+
+## 参考资料
+
+1. https://commitlint.js.org/#/
+2. 
