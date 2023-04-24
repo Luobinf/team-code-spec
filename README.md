@@ -42,7 +42,11 @@ module.exports = {
 };
 ```
 
-我们一般直接使用提供的规范及即可，它所规定的 commit 信息格式一般如下：
+我们一般直接使用 **@commitlint/config-conventional** 提供的规范即可，它所规定的 commit 信息格式一般如下：
+
+```shell
+
+```
 
 
 
