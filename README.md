@@ -31,21 +31,44 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 
 ```JS
 module.exports = {
-  extends: ["@commitlint/config-conventional"],
-  rules: {
-   //  "type-enum": [
-   //    2,
-   //    "always",
-   //    ["feat", "fix", "docs", "style", "refactor", "test", "revert", "build", "perf"],
-   //  ],
-  },
+  extends: ["@commitlint/config-conventional"]
 };
 ```
 
 我们一般直接使用 **@commitlint/config-conventional** 提供的规范即可，它所规定的 commit 信息格式一般如下：
 
 ```shell
+git commit -m <type>[optional scope]: <description>
+```
 
+**常用 type 类别**
+
+type：用于表明这次提交代码的改动类型，常用的类型如下：
+
+- feat：新增功能
+- fix：bug 修复
+- docs：文档更新
+- style：不影响程序逻辑更改（例如格式化，分号不全等）
+- refactor：代码重构（既不新增功能也不是 bug 修复）
+- perf：性能优化
+- test：新增测试用例或更改已有测试用例
+- build：影响构建系统或外部依赖关系的更改（例如gulp、webpack、npm等）
+- ci：CI 配置文件与脚本的修改（例如：Travis、Circle等）
+- chore：不涉及到修改 src 文件或测试文件的其他更改
+- revert：回退到之前的commit提交记录
+
+**optional scope**
+
+一个可选的修改范围。用于标识此次提交主要涉及到代码中哪个模块的改动。
+
+**description**
+
+用于描述此次提交的内容。
+
+
+**示例**
+```shell
+git commit -m 'feat(xx模块): 增加 xx 功能'
 ```
 
 
