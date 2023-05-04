@@ -1,5 +1,31 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import Logo1 from '@assets/icons/logo-1.svg'
+import Logo2 from '@assets/icons/logo-2.svg'
+import Logo3 from '@assets/icons/logo-3.svg'
+
+
+console.log(Logo1, Logo2, Logo3)
+
+// import exampleJSON from '@assets/json/example.json'
+// import init from './fib.wasm?init';
+
+
+// console.log(exampleJSON, 'exampleJSON')
+
+// import Worker from './example.js?worker';
+// // 1. 初始化 Worker 实例
+// const worker = new Worker();
+// // 2. 主线程监听 worker 的信息
+// worker.addEventListener('message', (e) => {
+//   console.log(e);
+// });
+
+
+// init().then((instance) => {
+//   const fibFunc = instance.exports.fib;
+//   console.log('Fib result:', fibFunc);
+// });
 
 defineProps<{ msg: string }>()
 
