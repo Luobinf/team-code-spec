@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>no title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}/**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}.emoji {
+  height: 0.8em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}
+    /* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+    </style>
+    
+  </head>
+  <body for="html-export">
+    <div class="mume markdown-preview">
+    <html><head></head><body><div><h1 class="mume-header" id="%E5%9B%A2%E9%98%9F%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E6%A0%87%E5%87%86" ebook-toc-level-1 heading="&amp;#x56E2;&amp;#x961F;&amp;#x4EE3;&amp;#x7801;&amp;#x89C4;&amp;#x8303;&amp;#x6807;&amp;#x51C6;">&#x56E2;&#x961F;&#x4EE3;&#x7801;&#x89C4;&#x8303;&#x6807;&#x51C6;</h1>
+
+<h2 class="mume-header" id="commit-%E8%A7%84%E8%8C%83" ebook-toc-level-2 heading="commit &amp;#x89C4;&amp;#x8303;">commit &#x89C4;&#x8303;</h2>
+
+<p><strong>commitlint</strong> &#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x4F60;&#x7684;&#x56E2;&#x961F;&#x4F7F;&#x7528;&#x7EDF;&#x4E00;&#x7684; commit &#x89C4;&#x8303;&#x3002;</p>
+<h3 class="mume-header" id="%E4%BD%BF%E7%94%A8" ebook-toc-level-3 heading="&amp;#x4F7F;&amp;#x7528;">&#x4F7F;&#x7528;</h3>
+
+<h4 class="mume-header" id="install" ebook-toc-level-4 heading="install">install</h4>
+
+<pre data-role="codeBlock" data-info="shell" class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> @commitlint/<span class="token punctuation">{</span>cli,config-conventional<span class="token punctuation">}</span> -D
+</pre><p>&#x5728; <strong>git commit</strong> &#x63D0;&#x4EA4;&#x65F6;&#x8FDB;&#x884C; <strong>commit</strong> &#x68C0;&#x67E5;&#x662F;&#x5426;&#x89C4;&#x8303;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5BF9; <strong>commit</strong> &#x8FDB;&#x884C;&#x62E6;&#x622A;&#xFF0C;&#x53EA;&#x6709;&#x7B26;&#x5408;&#x76F8;&#x5E94;&#x7684;&#x683C;&#x5F0F;&#x624D;&#x80FD;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x3002;&#x793E;&#x533A;&#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <strong>Husky</strong> &#x6765;&#x5B8C;&#x6210;&#x8FD9;&#x4EF6;&#x4E8B;&#x60C5;&#x3002;</p>
+<h4 class="mume-header" id="install-husky" ebook-toc-level-4 heading="Install husky">Install husky</h4>
+
+<pre data-role="codeBlock" data-info="shell" class="language-shell"><span class="token comment"># Install</span>
+<span class="token function">npm</span> <span class="token function">install</span> husky --save-dev
+
+<span class="token comment"># Activate hooks</span>
+npx husky <span class="token function">install</span>
+</pre><h4 class="mume-header" id="add-hook" ebook-toc-level-4 heading="Add hook">Add hook</h4>
+
+<pre data-role="codeBlock" data-info="shell" class="language-shell">npx husky <span class="token function">add</span> .husky/commit-msg  <span class="token string">&apos;npx --no -- commitlint --edit ${1}&apos;</span>
+</pre><h4 class="mume-header" id="%E5%BD%93%E5%89%8D%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%B0%E5%BB%BA-commitlintconfigjs" ebook-toc-level-4 heading="&amp;#x5F53;&amp;#x524D;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x65B0;&amp;#x5EFA; commitlint.config.js">&#x5F53;&#x524D;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA; commitlint.config.js</h4>
+
+<pre data-role="codeBlock" data-info="JS" class="language-javascript">module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;@commitlint/config-conventional&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><p>&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x76F4;&#x63A5;&#x4F7F;&#x7528; <strong>@commitlint/config-conventional</strong> &#x63D0;&#x4F9B;&#x7684;&#x89C4;&#x8303;&#x5373;&#x53EF;&#xFF0C;&#x5B83;&#x6240;&#x89C4;&#x5B9A;&#x7684; commit &#x4FE1;&#x606F;&#x683C;&#x5F0F;&#x4E00;&#x822C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell"><span class="token function">git</span> commit -m <span class="token operator">&lt;</span>type<span class="token operator">&gt;</span><span class="token punctuation">[</span>optional scope<span class="token punctuation">]</span>: <span class="token operator">&lt;</span>description<span class="token operator">&gt;</span>
+</pre><p><strong>&#x5E38;&#x7528; type &#x7C7B;&#x522B;</strong></p>
+<p>type&#xFF1A;&#x7528;&#x4E8E;&#x8868;&#x660E;&#x8FD9;&#x6B21;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x7684;&#x6539;&#x52A8;&#x7C7B;&#x578B;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x7C7B;&#x578B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>feat&#xFF1A;&#x65B0;&#x589E;&#x529F;&#x80FD;</li>
+<li>fix&#xFF1A;bug &#x4FEE;&#x590D;</li>
+<li>docs&#xFF1A;&#x6587;&#x6863;&#x66F4;&#x65B0;</li>
+<li>style&#xFF1A;&#x4E0D;&#x5F71;&#x54CD;&#x7A0B;&#x5E8F;&#x903B;&#x8F91;&#x66F4;&#x6539;&#xFF08;&#x4F8B;&#x5982;&#x683C;&#x5F0F;&#x5316;&#xFF0C;&#x5206;&#x53F7;&#x4E0D;&#x5168;&#x7B49;&#xFF09;</li>
+<li>refactor&#xFF1A;&#x4EE3;&#x7801;&#x91CD;&#x6784;&#xFF08;&#x65E2;&#x4E0D;&#x65B0;&#x589E;&#x529F;&#x80FD;&#x4E5F;&#x4E0D;&#x662F; bug &#x4FEE;&#x590D;&#xFF09;</li>
+<li>perf&#xFF1A;&#x6027;&#x80FD;&#x4F18;&#x5316;</li>
+<li>test&#xFF1A;&#x65B0;&#x589E;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x6216;&#x66F4;&#x6539;&#x5DF2;&#x6709;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</li>
+<li>build&#xFF1A;&#x5F71;&#x54CD;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x6216;&#x5916;&#x90E8;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x7684;&#x66F4;&#x6539;&#xFF08;&#x4F8B;&#x5982;gulp&#x3001;webpack&#x3001;npm&#x7B49;&#xFF09;</li>
+<li>ci&#xFF1A;CI &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E0E;&#x811A;&#x672C;&#x7684;&#x4FEE;&#x6539;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;Travis&#x3001;Circle&#x7B49;&#xFF09;</li>
+<li>chore&#xFF1A;&#x4E0D;&#x6D89;&#x53CA;&#x5230;&#x4FEE;&#x6539; src &#x6587;&#x4EF6;&#x6216;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x7684;&#x5176;&#x4ED6;&#x66F4;&#x6539;</li>
+<li>revert&#xFF1A;&#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;commit&#x63D0;&#x4EA4;&#x8BB0;&#x5F55;</li>
+</ul>
+<p><strong>optional scope</strong></p>
+<p>&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x4FEE;&#x6539;&#x8303;&#x56F4;&#x3002;&#x7528;&#x4E8E;&#x6807;&#x8BC6;&#x6B64;&#x6B21;&#x63D0;&#x4EA4;&#x4E3B;&#x8981;&#x6D89;&#x53CA;&#x5230;&#x4EE3;&#x7801;&#x4E2D;&#x54EA;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x6539;&#x52A8;&#x3002;</p>
+<p><strong>description</strong></p>
+<p>&#x7528;&#x4E8E;&#x63CF;&#x8FF0;&#x6B64;&#x6B21;&#x63D0;&#x4EA4;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;</strong></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell"><span class="token function">git</span> commit -m <span class="token string">&apos;feat(xx&#x6A21;&#x5757;): &#x589E;&#x52A0; xx &#x529F;&#x80FD;&apos;</span>
+</pre><h2 class="mume-header" id="%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99" ebook-toc-level-2 heading="&amp;#x53C2;&amp;#x8003;&amp;#x8D44;&amp;#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h2>
+
+<ol>
+<li><a href="https://commitlint.js.org/#/">https://commitlint.js.org/#/</a></li>
+</ol>
+<h1 class="mume-header" id="vite-%E7%9B%B8%E5%85%B3" ebook-toc-level-1 heading="vite &amp;#x76F8;&amp;#x5173;">vite &#x76F8;&#x5173;</h1>
+
+<ol>
+<li>GLob &#x6A21;&#x5F0F;</li>
+<li>&#x9884;&#x6784;&#x5EFA;</li>
+</ol>
+<h2 class="mume-header" id="%E4%BE%9D%E8%B5%96%E9%A2%84%E6%9E%84%E5%BB%BA" ebook-toc-level-2 heading="&amp;#x4F9D;&amp;#x8D56;&amp;#x9884;&amp;#x6784;&amp;#x5EFA;">&#x4F9D;&#x8D56;&#x9884;&#x6784;&#x5EFA;</h2>
+
+<ol>
+<li>
+<p>&#x5C06;&#x5176;&#x4ED6;&#x683C;&#x5F0F;&#xFF08;&#x5982;CommonJS&#x3001;UMD&#xFF09;&#x7684;&#x4EA7;&#x7269;&#x8F6C;&#x5316;&#x4E3A; ESM &#x683C;&#x5F0F;&#xFF0C;&#x4F7F;&#x5F97;&#x5176;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x901A;&#x8FC7; <script type="module"><script> 的方式正常加载。</p>
+</li>
+<li>
+<p>打包第三方库代码，将各个第三方库代码的文件合并到一起，减 HTTP 请求数量，避免页面加载性能劣化。</p>
+</li>
+</ol>
+<p>而这两件事情全部由性能优异的 <strong>Esbuild</strong> (基于 Golang 开发)完成，而不是传统的 Webpack/Rollup，所以也不会有明显的打包性能问题，反而是 Vite 项目启动飞快(秒级启动)的一个核心原因。</p>
+<h2>JSON 文件加载</h2>
+<p class="mume-header " id="json-文件加载"></p>
+<h1>Vite</h1>
+<p class="mume-header " id="vite"></p>
+<h2>为什么选择 Vite ？</h2>
+<p class="mume-header " id="为什么选择-vite-"></p>
+<p>当冷启动开发服务器时，基于打包器的方式启动必须构建整个应用，然后才能提供服务。Vite 通过在一开始将应用中的模块区分为 <strong>依赖</strong> 和 <strong>源码</strong> 两类，改进开发服务器启动时间。</p>
+<ul>
+<li><strong>依赖</strong> 大多为在开发时不会变动的纯 JS。一些较大的依赖（例如有上百个模块的组件库）处理的代价很高。依赖通常会存在多种模块化格式（例如 CommonJS 或者 ESM）。</li>
+</ul>
+<p>Vite 将会使用 esbuild 预构建依赖。esbuild 使用 Go 编写，并且比以 JavaScript 编写的打包器预构建依赖快 10-100 倍。</p>
+<ul>
+<li><strong>源码</strong></li>
+</ul>
+<p>通常包含一些并非直接是 JavaScript 的文件，需要转换（例如 JSX，CSS 或者 Vue/Svelte 组件），时常会被编辑。同时，并不是所有的源码都需要同时被加载（例如基于路由拆分的代码模块）。</p>
+<p>Vite 以 原生 ESM 方式提供源码。这实际上是让浏览器接管了打包程序的部分工作：Vite 只需要在浏览器请求源码时进行转换并按需提供源码。根据情景动态导入代码，即只在当前屏幕上实际使用时才会被处理。</p>
+<h2>总览</h2>
+<p class="mume-header " id="总览"></p>
+<p>Vite 主要有两部分组成：</p>
+<ul>
+<li>
+<p>一个开发服务器，它基于 <strong>原生 ES 模块</strong> 提供了 <em>丰富的内建功能</em>，如速度快到惊人的<strong>模块热更新</strong>。</p>
+</li>
+<li>
+<p>一套构建指令，它使用 <strong>Rollup</strong> 打包你的代码，并且它是预配置的，可输出用于生产环境的高度优化过的静态资源。</p>
+</li>
+</ul>
+<p>Vite 意在提供开箱即用的配置，同时它的 <strong>插件 API</strong> 和 <strong>JavaScript API</strong>带来了高度的可扩展性，并有完整的类型支持。</p>
+<h2>浏览器支持</h2>
+<p class="mume-header " id="浏览器支持"></p>
+<p>默认的构建目标是能支持 <strong>原生 ESM 语法的 script 标签</strong>、<strong>原生 ESM 动态导入</strong> 和 <strong>import.meta</strong> 的浏览器。传统浏览器可以通过官方插件 <strong>@vitejs/plugin-legacy</strong> 支持 —— 查看 <strong>构建生产版本</strong>章节获取更多细节。</p>
+<p><strong>import.meta 用于表示这个模块的元数据信息，它会返回一个带有 url 属性的对象，指明当前这个模块的基本 URL。</strong></p>
+<h2>命令行界面</h2>
+<p class="mume-header " id="命令行界面"></p>
+<p>在安装了 Vite 的项目中，可以在 npm scripts 中使用 vite 可执行文件，或者直接使用 <code>npx vite</code> 运行它。下面是通过脚手架创建的 Vite 项目中默认的 npm scripts：</p>
+<pre data-role="codeBlock" data-info="JSON" data-parsed-info="{&quot;language&quot;:&quot;JSON&quot;,&quot;attributes&quot;:{}}" data-normalized-info="{&quot;language&quot;:&quot;json&quot;,&quot;attributes&quot;:{}}">{
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;, &#x2F;&#x2F; 启动开发服务器，别名：`vite dev`，`vite serve`
+    &quot;build&quot;: &quot;vite build&quot;, &#x2F;&#x2F; 为生产环境构建产物
+    &quot;preview&quot;: &quot;vite preview&quot; &#x2F;&#x2F; 本地预览生产环境的构建产物
+  }
+}
+</pre><h2>NPM 依赖解析和预构建</h2>
+<p class="mume-header " id="npm-依赖解析和预构建"></p>
+<ol>
+<li>
+<p>预构建可以提高页面加载速度，并将 CommonJS / UMD 转换为 ESM 格式。预构建这一步由 esbuild 执行，这使得 Vite 的冷启动时间比任何基于 JavaScript 的打包器都要快得多。</p>
+</li>
+<li>
+<p>重写导入为合法的 URL，例如 /node_modules/.vite/deps/my-dep.js?v=f3sf2ebd 以便浏览器能够正确导入它们。</p>
+</li>
+</ol>
+<h3>依赖是强缓存的</h3>
+<p class="mume-header " id="依赖是强缓存的"></p>
+<p>Vite 通过 HTTP 头来缓存请求得到的依赖，所以如果你想要编辑或调试一个依赖，请按照 这里 的步骤操作。</p>
+<h2>TS（重点注意：仅执行时转译）</h2>
+<p class="mume-header " id="ts重点注意仅执行时转译"></p>
+<p>Vite 支持引入 <strong>.ts</strong> 文件。</p>
+<h3>仅执行转译</h3>
+<p class="mume-header " id="仅执行转译"></p>
+<h2>客户端类型</h2>
+<p class="mume-header " id="客户端类型"></p>
+<pre data-role="codeBlock" data-info="TS" data-parsed-info="{&quot;language&quot;:&quot;TS&quot;,&quot;attributes&quot;:{}}" data-normalized-info="{&quot;language&quot;:&quot;ts&quot;,&quot;attributes&quot;:{}}">&#x2F;&#x2F; xx.d.ts 文件
+&#x2F;&#x2F;&#x2F; &lt;reference types=&quot;vite&#x2F;client&quot; &#x2F;&gt;
+</pre><p><strong>上述指令用于引入 Vite 客户端类型声明。这将会提供以下类型定义补充：</strong></p>
+<ul>
+<li>资源导入(例如：导入一个 <code>.svg</code> 文件)</li>
+<li><code>import.meta.env</code> 上 Vite 注入的环境变量的类型定义</li>
+<li><code>import.meta.hot</code> 上的 <code>HMR API</code> 类型定义</li>
+</ul>
+<h2>CSS</h2>
+<p class="mume-header " id="css"></p>
+<p>通过 <code>.css</code> 文件将会把内容插入到 <style> 标签中，同时也带有 HMR 支持。也能够以字符串的形式检索处理后的、作为其模块默认导出的 CSS。</p>
+<pre data-role="codeBlock" data-info="JS" data-parsed-info="{&quot;language&quot;:&quot;JS&quot;,&quot;attributes&quot;:{}}" data-normalized-info="{&quot;language&quot;:&quot;js&quot;,&quot;attributes&quot;:{}}">import styles from &#x27;.&#x2F;styles.css&#x27;;
+
+console.log(styles); &#x2F;&#x2F; 输出处理后的CSS字符串
+
+&#x2F;&#x2F; 在代码中使用CSS字符串
+const element = document.createElement(&#x27;div&#x27;);
+element.className = styles.myClass;
+document.body.appendChild(element);
+</pre><h3>@import 内联和变基</h3>
+<p class="mume-header " id="import-内联和变基"></p>
+<p>Vite 通过 <code>postcss-import</code> 预配置支持了 CSS <code>@import</code> 内联，Vite 的路径别名也遵从 CSS <code>@import</code> 。换句话说，所有 CSS <code>url()</code> 引用，即使导入的文件在不同的目录中，也总是自动变基，以确保正确性。</p>
+<p>Sass 和 Less 文件也支持 <code>@import</code> 别名和 URL 变基（具体请参阅 CSS Pre-processors）。</p>
+<ol>
+<li>
+<p><code>@import</code> 内联是指将 <code>@import</code> 规则中引入的外部样式表文件内容内联到主样式表中。这种方式可以减少对外部资源的请求次数，提高加载速度。当 Vite 检测到 CSS 中的 <code>@import</code> 规则时，会自动将被引入的外部样式表文件内容内联到当前样式表中。</p>
+</li>
+<li>
+<p>变基（Rebasing）：变基是指将样式表中的 URL 路径进行重定向，使其基于当前页面的路径。在开发环境中，Vite 在检测到样式表的 URL 路径时，会将其重定向到开发服务器上对应的路径。在生产环境中，Vite 会根据构建配置将样式表中的 URL 路径进行重定向，使其基于生产环境部署的路径。</p>
+</li>
+</ol>
+<h3>PostCSS</h3>
+<p class="mume-header " id="postcss"></p>
+<p>同 postcss 配置。</p>
+<h3>CSS Modules</h3>
+<p class="mume-header " id="css-modules"></p>
+<p>任何以 <code>.module.css</code> 为后缀名的 CSS 文件都被认为是一个 CSS modules 文件。导入这样的文件会返回一个相应的模块对象：</p>
+<pre data-role="codeBlock" data-info="CSS" data-parsed-info="{&quot;language&quot;:&quot;CSS&quot;,&quot;attributes&quot;:{}}" data-normalized-info="{&quot;language&quot;:&quot;css&quot;,&quot;attributes&quot;:{}}">&#x2F;* example.module.css *&#x2F;
+.red {
+  color: red;
+}
+</pre><pre data-role="codeBlock" data-info="JS" data-parsed-info="{&quot;language&quot;:&quot;JS&quot;,&quot;attributes&quot;:{}}" data-normalized-info="{&quot;language&quot;:&quot;js&quot;,&quot;attributes&quot;:{}}">import classes from &#x27;.&#x2F;example.module.css&#x27;
+document.getElementById(&#x27;foo&#x27;).className = classes.red
+</pre><p>CSS modules 行为可以通过 css.modules 选项 进行配置。</p>
+<p>如果 css.modules.localsConvention 设置开启了 camelCase 格式变量名转换（例如 localsConvention: 'camelCaseOnly'），你还可以使用按名导入。</p>
+<pre data-role="codeBlock" data-info="JS" data-parsed-info="{&quot;language&quot;:&quot;JS&quot;,&quot;attributes&quot;:{}}" data-normalized-info="{&quot;language&quot;:&quot;js&quot;,&quot;attributes&quot;:{}}">&#x2F;&#x2F; .apply-color -&gt; applyColor
+import { applyColor } from &#x27;.&#x2F;example.module.css&#x27;
+document.getElementById(&#x27;foo&#x27;).className = applyColor
+</pre><h3>CSS 预处理器</h3>
+<p class="mume-header " id="css-预处理器"></p>
+<p>由于 Vite 的目标仅为现代浏览器，因此建议使用原生 CSS 变量和实现 CSSWG 草案的 PostCSS 插件（例如 postcss-nesting）来编写简单的、符合未来标准的 CSS。</p>
+<p>话虽如此，但 Vite 也同时提供了对 .scss, .sass, .less, .styl 和 .stylus 文件的内置支持。没有必要为它们安装特定的 Vite 插件，但必须安装相应的预处理器依赖。</p>
+<p>值得注意的是 Vite 为 Sass、Less 改进了 <code>@import</code> 解析，保证了 Vite 别名也能被使用。另外，url() 中的相对路径引用的，与根文件不同目录中的 Sass/Less 文件会自动变基以保证正确性。</p>
+<p><span style="color: red;">这是红色的文字</span></p>
+</script></p></li></ol></div></body></html>
+    </div>
+  </body>
+</html>

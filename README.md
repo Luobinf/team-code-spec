@@ -79,6 +79,9 @@ git commit -m 'feat(xx模块): 增加 xx 功能'
 
 
 
+
+
+
 # vite 相关
 
 1. GLob 模式
@@ -150,7 +153,7 @@ Vite 意在提供开箱即用的配置，同时它的 **插件 API** 和 **JavaS
 ```
 
 
-## NPM 依赖解析和预构建
+## NPM 依赖解析和预构建（重要）
 
 1. 预构建可以提高页面加载速度，并将 CommonJS / UMD 转换为 ESM 格式。预构建这一步由 esbuild 执行，这使得 Vite 的冷启动时间比任何基于 JavaScript 的打包器都要快得多。
 
@@ -169,7 +172,7 @@ Vite 支持引入 **.ts** 文件。
 
 
 
-## 客户端类型
+## 客户端类型（重要）
 
 ```TS
 // xx.d.ts 文件
@@ -184,9 +187,9 @@ Vite 支持引入 **.ts** 文件。
 
 
 
-## CSS
+## CSS（重要）
 
-通过 `.css` 文件将会把内容插入到 <style> 标签中，同时也带有 HMR 支持。也能够以字符串的形式检索处理后的、作为其模块默认导出的 CSS。
+通过 `.css` 文件将会把内容插入到 <style> 标签中，同时也带有 HMR 支持。也能够以字符串的形式检索处理后的、作为其模块默认导出的 CSS。例如：
 
 
 ```JS
@@ -200,7 +203,7 @@ element.className = styles.myClass;
 document.body.appendChild(element);
 ```
 
-### @import 内联和变基
+### @import 内联和变基（重要）
 
 Vite 通过 `postcss-import` 预配置支持了 CSS `@import` 内联，Vite 的路径别名也遵从 CSS `@import` 。换句话说，所有 CSS `url()` 引用，即使导入的文件在不同的目录中，也总是自动变基，以确保正确性。
 
@@ -213,4 +216,56 @@ Sass 和 Less 文件也支持 `@import` 别名和 URL 变基（具体请参阅 C
 
 
 ### PostCSS
+
+同 postcss 配置。
+
+
+### CSS Modules
+
+任何以 `.module.css` 为后缀名的 CSS 文件都被认为是一个 CSS modules 文件。导入这样的文件会返回一个相应的模块对象：
+
+```CSS
+/* example.module.css */
+.red {
+  color: red;
+}
+```
+
+```JS
+import classes from './example.module.css'
+document.getElementById('foo').className = classes.red
+```
+
+CSS modules 行为可以通过 css.modules 选项 进行配置。
+
+如果 css.modules.localsConvention 设置开启了 camelCase 格式变量名转换（例如 localsConvention: 'camelCaseOnly'），你还可以使用按名导入。
+
+```JS
+// .apply-color -> applyColor
+import { applyColor } from './example.module.css'
+document.getElementById('foo').className = applyColor
+```
+
+### CSS 预处理器（重要）
+
+
+由于 Vite 的目标仅为现代浏览器，因此建议使用原生 CSS 变量和实现 CSSWG 草案的 PostCSS 插件（例如 postcss-nesting）来编写简单的、符合未来标准的 CSS。
+
+话虽如此，但 Vite 也同时提供了对 .scss, .sass, .less, .styl 和 .stylus 文件的内置支持。没有必要为它们安装特定的 Vite 插件，但必须安装相应的预处理器依赖。
+
+***值得注意的是 Vite 为 Sass、Less 改进了 `@import` 解析，保证了 Vite 别名也能被使用。另外，url() 中的相对路径引用的，与根文件不同目录中的 Sass/Less 文件会自动变基以保证正确性。***
+
+```Vue
+<!-- 下面使用别名也能被正确解析，Vite 做了特殊处理 -->
+<style scoped lang="less">
+  @import url('@src/components/HelloWorld/style.less');
+  .read-the-docs {
+    color: #888;
+  }
+</style>
+```
+
+由于 Stylus API 限制，@import 别名和 URL 变基不支持 Stylus。
+
+你还可以通过在文件扩展名前加上 .module 来结合使用 CSS modules 和预处理器，例如 style.module.scss。
 

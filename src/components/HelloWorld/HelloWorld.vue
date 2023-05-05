@@ -4,7 +4,6 @@ import Logo1 from '@assets/icons/logo-1.svg'
 import Logo2 from '@assets/icons/logo-2.svg'
 import Logo3 from '@assets/icons/logo-3.svg'
 
-
 console.log(Logo1, Logo2, Logo3)
 
 // import exampleJSON from '@assets/json/example.json'
@@ -57,7 +56,8 @@ const count = ref(0)
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
-<style scoped>
+<style scoped lang="less">
+@import url('@src/components/HelloWorld/style.less');
 .read-the-docs {
   color: #888;
 }
