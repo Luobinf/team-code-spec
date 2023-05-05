@@ -5,5 +5,3 @@ export const start = () => {
     postMessage(++count);
   }, 2000);
 };
-
-start();

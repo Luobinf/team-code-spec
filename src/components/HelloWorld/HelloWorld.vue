@@ -3,8 +3,21 @@ import { ref } from 'vue'
 import Logo1 from '@assets/icons/logo-1.svg'
 import Logo2 from '@assets/icons/logo-2.svg'
 import Logo3 from '@assets/icons/logo-3.svg'
+// 以下样式会被自动注入到页面中
+import './test.less'
+// 以下方式书写样式将会被禁止注入到页面中
+// import './test.less?inline'
 
-console.log(Logo1, Logo2, Logo3)
+// import { start } from './example'
+
+import start from './example.js?raw'
+// import start from './example.js?url'
+// ....
+
+
+console.log(`start`, start, typeof start)  // /src/components/HelloWorld/example.js
+
+console.log('logo: ', Logo1, Logo2, Logo3)
 
 // import exampleJSON from '@assets/json/example.json'
 // import init from './fib.wasm?init';

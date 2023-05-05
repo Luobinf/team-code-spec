@@ -269,3 +269,66 @@ document.getElementById('foo').className = applyColor
 
 你还可以通过在文件扩展名前加上 .module 来结合使用 CSS modules 和预处理器，例如 style.module.scss。
 
+
+
+### 禁用 CSS 注入页面
+
+自动注入 CSS 内容的行为可以通过 ?inline 参数来关闭。在关闭时，被处理过的 CSS 字符串将会作为该模块的默认导出，但样式并没有被注入到页面中。
+
+```JS
+import './foo.css' // 样式将会注入页面
+import otherStyles from './bar.css?inline' // 样式不会注入页面
+```
+
+
+## 静态资源处理
+
+## 将资源引入为 URL
+
+导入一个静态资源会返回解析后的 URL：
+
+```JS
+import imgUrl from './img.png'
+document.getElementById('hero-img').src = imgUrl
+```
+
+例如，`imgUrl` 在开发时会是 `/img.png`，在生产构建后会是 `/assets/img.2d8efhg.png`。
+
+行为类似于 Webpack 的 `file-loader`。区别在于导入既可以使用绝对公共路径（基于开发期间的项目根路径），也可以使用相对路径。
+
+- url() 在 CSS 中的引用也以同样的方式处理。
+
+- 如果 Vite 使用了 Vue 插件，Vue SFC 模板中的资源引用都将自动转换为导入。
+
+- 常见的图像、媒体和字体文件类型被自动检测为资源。你可以使用 **assetsInclude 选项** 扩展内部列表。
+
+- 引用的资源作为构建资源图的一部分包括在内，将生成散列文件名，并可以由插件进行处理以进行优化。
+
+- 较小的资源体积小于 **assetsInlineLimit 选项值** 则会被内联为 base64 data URL。
+
+- Git LFS 占位符会自动排除在内联之外，因为它们不包含它们所表示的文件的内容。要获得内联，请确保在构建之前通过 Git LFS 下载文件内容。
+
+- 默认情况下，TypeScript 不会将静态资源导入视为有效的模块。要解决这个问题，需要添加 **vite/client**。
+
+
+
+
+添加一些特殊的查询参数可以更改资源被引入的方式：
+
+```JS
+// 显式加载资源为一个 URL
+import assetAsURL from './asset.js?url'
+
+// 以字符串形式加载资源
+import assetAsString from './shader.glsl?raw'
+
+// 加载为 Web Worker
+import Worker from './worker.js?worker'
+
+// 在构建时 Web Worker 内联为 base64 字符串
+import InlineWorker from './worker.js?worker&inline'
+```
+
+
+
+
