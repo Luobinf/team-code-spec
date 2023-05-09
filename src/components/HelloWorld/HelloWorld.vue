@@ -14,6 +14,18 @@ import start from './example.js?raw'
 // import start from './example.js?url'
 // ....
 
+import testGltf from './testtest.gltf'
+
+import {name} from './test.json'
+
+console.log(name, 'name')
+
+console.log(testGltf, 'testGltf')
+
+const imgUrl = new URL('./img.png', import.meta.url).href
+
+console.log(imgUrl, 'imgUrl')
+
 
 console.log(`start`, start, typeof start)  // /src/components/HelloWorld/example.js
 

@@ -283,7 +283,7 @@ import otherStyles from './bar.css?inline' // 样式不会注入页面
 
 ## 静态资源处理
 
-## 将资源引入为 URL
+### 将资源引入为 URL
 
 导入一个静态资源会返回解析后的 URL：
 
@@ -296,7 +296,7 @@ document.getElementById('hero-img').src = imgUrl
 
 行为类似于 Webpack 的 `file-loader`。区别在于导入既可以使用绝对公共路径（基于开发期间的项目根路径），也可以使用相对路径。
 
-- url() 在 CSS 中的引用也以同样的方式处理。
+- `url()` 在 CSS 中的引用也以同样的方式处理。
 
 - 如果 Vite 使用了 Vue 插件，Vue SFC 模板中的资源引用都将自动转换为导入。
 
@@ -330,5 +330,72 @@ import InlineWorker from './worker.js?worker&inline'
 ```
 
 
+### 将资源引入为字符串形式
+
+```JS
+// 显式加载资源为一个 URL
+import assetAsURL from './asset.js?raw'
+```
+
+### new URL(url, import.meta.url)
+
+import.meta.url 是一个 ESM 的原生功能，会暴露当前模块的 URL。将它与原生的 URL 构造器 组合使用，在一个 JavaScript 模块中，通过相对路径我们就能得到一个被完整解析的静态资源 URL：
 
 
+```JS
+const imgUrl = new URL('./img.png', import.meta.url).href
+document.getElementById('hero-img').src = imgUrl
+```
+
+## JSON
+
+Vite 支持 JSON 文件导入解析，可以被直接导入，也可以使用具名导入：
+
+```JS
+// 导入整个对象
+import json from './example.json'
+// 对一个根字段使用具名导入 —— 有效帮助 treeshaking！
+import { field } from './example.json'
+```
+
+## Glob 导入
+
+Vite 支持使用特殊的 import.meta.glob 函数从文件系统导入多个模块，默认是动态导入方式：
+
+```JS
+// Vite 支持使用特殊的 import.meta.glob 函数从文件系统导入多个模块：
+const modules = import.meta.glob('./dir/*.js')
+
+// 以上将会被转译为下面的样子：
+// vite 生成的代码
+const modules = {
+  './dir/foo.js': () => import('./dir/foo.js'),
+  './dir/bar.js': () => import('./dir/bar.js'),
+}
+
+// 你可以遍历 modules 对象的 key 值来访问相应的模块：
+for (const path in modules) {
+  modules[path]().then((mod) => {
+    console.log(path, mod)
+  })
+}
+```
+
+匹配到的文件默认是懒加载的，通过动态导入实现，并会在构建时分离为独立的 chunk。如果你倾向于直接引入所有的模块（例如依赖于这些模块中的副作用首先被应用），你可以传入 { eager: true } 作为第二个参数：
+
+
+```JS
+// Vite 支持使用特殊的 import.meta.glob 函数从文件系统导入多个模块：
+const modules = import.meta.glob('./dir/*.js', { eager: true })
+
+// 以上将会被转译为下面的样子：
+// vite 生成的代码
+import * as __glob__0_0 from './dir/foo.js'
+import * as __glob__0_1 from './dir/bar.js'
+const modules = {
+  './dir/foo.js': __glob__0_0,
+  './dir/bar.js': __glob__0_1,
+}
+```
+
+## 动态导入

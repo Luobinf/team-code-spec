@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld/HelloWorld.vue'
-import viteLogo from '@assets/images/vue.svg'
+import viteLogo from '@assets/images/1.jpg'
 
 console.log(viteLogo,  'viteLogo')
 </script>
